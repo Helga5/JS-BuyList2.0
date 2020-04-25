@@ -1,6 +1,6 @@
 $(function(){
      function outputProduct(name){
-		
+		//створюємо темплейт рядка з продуктом
 		var PRODUCT_TEMPLATE = $('<div class="row" style="display:none">'+
             '<div class="row-product">'+
             '<span class="edit" disabled=""></span>'+
@@ -20,11 +20,11 @@ $(function(){
 		PRODUCT_TEMPLATE.find('.row-product span').text(name);
 		PRODUCT_TEMPLATE.find('.plus').click(function(){
 			 var count=parseInt(PRODUCT_TEMPLATE.find(".label").text(),10);
-
+//Якщо кількість товарів більше 1, то кнопка стає активною. 
             if(count>=1){
                  PRODUCT_TEMPLATE.find(".minus").attr('disabled',false);
             }
-            count++;
+            count++; //додаємо продкт
 
             PRODUCT_TEMPLATE.find(".label").text(count);
             PRODUCT_LEFT.find('.amount').text(count);
@@ -32,19 +32,21 @@ $(function(){
 		});
          
          PRODUCT_TEMPLATE.find('.minus').click(function(){
-			 var count=parseInt(PRODUCT_TEMPLATE.find(".label").text(),10);
+             var count=parseInt(PRODUCT_TEMPLATE.find(".label").text(),10);
+             //Якщо кількість товарів менше 2, то кнопка стає активною. 
             if(count<=2){
                  PRODUCT_TEMPLATE.find(".minus").attr('disabled',true);
                 count=1;
             }
             if(count>1){
-            count--;
+            count--; //забираємо продукт
              }
             PRODUCT_TEMPLATE.find(".label").text(count);
             PRODUCT_LEFT.find('.amount').text(count);
             PRODUCT_BOUGHT.find('.amount').text(count);
 		});
          
+        //видаляємо продукт
         PRODUCT_TEMPLATE.find('.delete').click(function(){
              PRODUCT_TEMPLATE.slideUp(400,function(){
                  $(this).remove();
@@ -53,6 +55,7 @@ $(function(){
             PRODUCT_BOUGHT.remove();
         });
          
+        //відмічаємо, як куплений
         PRODUCT_TEMPLATE.find('.bought').click(function () {
             PRODUCT_TEMPLATE.find('.bought').hide();
             PRODUCT_TEMPLATE.find('.minus').hide();
@@ -65,6 +68,7 @@ $(function(){
             PRODUCT_BOUGHT.show().css('text-decoration', 'line-through');
          });
          
+         //повертаємо до формату не купленого
           PRODUCT_TEMPLATE.find('.not-bought').click(function () {
             PRODUCT_TEMPLATE.find('.bought').show();
             PRODUCT_TEMPLATE.find('.minus').show();
@@ -78,6 +82,7 @@ $(function(){
          });
          
     
+    //змінюємо текст продукту
       PRODUCT_TEMPLATE.find('.edit').click(function(){
          var label = $(this);
           label.after("<input type = 'text' style = 'display:none; box-shadow: 0 0 5px #4195fc; border: 0.5px solid #4195fc;color: rgba(0,0,0,.87); border-radius: 4px;'>");
@@ -95,8 +100,8 @@ $(function(){
             $(this).prev().show();
         });
       });
-         var PRODUCT_LEFT = $( '<span class="product-item">'+'<span class="title">'+name+'</span> '+'<span class="amount">1</span>'+'</span> ');
-         var PRODUCT_BOUGHT =$( '<span class="product-item" style="display:none">'+'<span class="title">'+name+'</span> '+'<span class="amount" style="text-decoration:line-through">1</span>'+'</span> ');
+       var PRODUCT_LEFT = $( '<span class="product-item">'+'<span class="title">'+name+'</span> '+'<span class="amount">1</span>'+'</span> ');
+      var PRODUCT_BOUGHT =$( '<span class="product-item" style="display:none">'+'<span class="title">'+name+'</span> '+'<span class="amount" style="text-decoration:line-through">1</span>'+'</span> ');
          
         $('.list-of-items').append(PRODUCT_TEMPLATE); 
         PRODUCT_TEMPLATE.slideDown(400);
@@ -104,8 +109,8 @@ $(function(){
         $('.segment:nth-child(4)').append(PRODUCT_BOUGHT);
 	}
     
+    //додаємо новий рядок за допомогою кнопки
      $('.add').click(function(){
-		
 		var inputField = $('.name-goods');
 		var newElem = inputField.val();
 		if(newElem!==""){
@@ -115,6 +120,7 @@ $(function(){
            }
 	});
     
+    //додаємо новий рядок за допомогою ентера
      $('.name-goods').keyup(function(event){
        if(event.keyCode == 13){
         $(".add").click();
@@ -127,11 +133,13 @@ $(function(){
            }
        }
 	});
-    
+   
+    //скасовуємо додавання пустих рядків
 	$('.add').submit(function(event){
 		event.preventDefault();
 	});
     
+    //виводимо три початкових продукти
     outputProduct("Помідори");
     outputProduct("Печиво");
     outputProduct("Сир");
