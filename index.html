@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="uk">
+    <meta charset="UTF-8">
+    <title>BuyList</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<div class="container">  
+    <div class="left debug">
+        <div class="name-add">
+               <div class="form-group"><input class="name-goods" type="text" placeholder="Назва товару"></div>
+            <button class="add" data-tooltip="Add new product">Додати</button>
+        </div>
+        <div class="list-of-items">
+
+        <div class="row">
+            <div class="row-product">
+                <span>Помідори</span>
+            </div>
+            <div class="count">
+                <button class="btn minus" data-tooltip="Remove 1 product">-</button>
+                <span class="label">1</span>
+                <button class="btn plus" data-tooltip="Add 1 product">+</button>
+            </div>
+            <div class="buttons">
+                <button class="bought" data-tooltip="Bought">Куплено</button>
+                <button class="not-bought" data-tooltip="Not bought" style="display:none;">Не куплено</button>
+                <button class="delete" data-tooltip="Delete">x</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-product">
+                <span>Печиво</span>
+            </div>
+            <div class="count">
+                <button class="btn minus" data-tooltip="Remove 1 product">-</button>
+                <span class="label">1</span>
+                <button class="btn plus" data-tooltip="Add 1 product">+</button>
+            </div>
+            <div class="buttons">
+               <button class="bought" data-tooltip="Bought">Куплено</button>
+                <button class="not-bought" data-tooltip="Not bought" style="display:none;">Не куплено</button>      
+                <button class="delete" data-tooltip="Delete">x</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-product">
+                <span>Сир</span>
+            </div>
+            <div class="count">
+                <button class="btn minus" data-tooltip="Remove 1 product">-</button>
+                <span class="label">1</span>
+                <button class="btn plus" data-tooltip="Add 1 product">+</button>
+            </div>
+            <div class="buttons">
+                <button class="bought" data-tooltip="Bought">Куплено</button>
+                <button class="not-bought" data-tooltip="Not bought" style="display:none;">Не куплено</button>
+                <button class="delete" data-tooltip="Delete">x</button>
+            </div>
+        </div> 
+
+        </div>
+    </div>
+    <div class="right debug">
+        <div class="segment"><h3>Залишилося</h3></div>
+        <div class="segment">
+
+           <span class="product-item">Помідори<span class="amount">1</span></span>
+            <span class="product-item">Печиво<span class="amount">1</span></span>
+            <span class="product-item">Сир<span class="amount">1</span></span>
+
+        </div>
+        <div class="segment"><h3>Куплено</h3></div>
+        <div class="segment"></div>
+    </div>
+</div>
+
+<div class="badge">
+    <div class="top">Buy list 
+        <div class="signature">Created by: <br> Olha Dybkaliuk</div>
+        </div>
+    </div>
+</body>
+</html>
