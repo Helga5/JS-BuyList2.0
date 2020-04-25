@@ -1,3 +1,3 @@
 # JS-BuyList
-Final variant and js added
+Practice #3 done, js added
 
